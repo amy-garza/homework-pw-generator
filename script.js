@@ -1,6 +1,6 @@
 // Declare and assign variables
 
-let passwordLength = 12;
+let passwordLength = 8;
 let characterList = [];
 
 // Declare and initialize string / array(s) to store password characters and types
@@ -30,8 +30,14 @@ function writePassword() {
 
 }
 
-// Define function 
+// Define function
 
-function generatePassword () {
+function generatePassword() {
+}
+
+// Create prompt box to generatePassword following prompts
+
+function getPrompts(){
+  passwordLength = (prompt("Enter the number of characters for your password. (Must range from 8 to 128 characters)"))
 
 }
