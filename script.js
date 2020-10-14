@@ -38,6 +38,12 @@ function generatePassword() {
 // Create prompt box to generatePassword following prompts
 
 function getPrompts(){
-  passwordLength = (prompt("Enter the number of characters for your password. (Must range from 8 to 128 characters)"))
+  passwordLength = parseInt(prompt("Enter the number of characters you'd like for your password. (Must be 8 to 128 characters)"));
+
+// 
+
+  if(isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128 {
+    
+  }
 
 }
