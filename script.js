@@ -2,7 +2,7 @@
 let passwordLength = 8;
 let characterList = [];
 
-// Declare and initialize string / array(s) to store password characters and types
+// Declare and initialize array(s) to store password characters and types
 let lowerCase = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 let upperCase = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 let specialCharacters = ['!','#','$','%','&','*','?','@','.','_']; 
@@ -14,26 +14,26 @@ let generateBtn = document.querySelector("#generate");
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-// Write password to the #password input
+// Write password to the #password input; If user input is valid - true or false, initiate prompt;
 function writePassword() {
-// If user input is valid - true or false
   let validPrompts = getPrompts();
-  
-if (validPrompts) {
-  let password = generatePassword();
   let passwordText = document.querySelector("#password");
-} else {}
 
-  passwordText.value = password;
+  if (validPrompts) {
+      let randomPassword = generatePassword();
+      passwordText.value = randomPassword;
+  } else {
+      passwordText.value = "";
   }
-}
-// Define function
+
+  }
+
 function generatePassword() {
   let password = "";
 // for loop set to the number of characters user input
-  for(let i = 0; i < characterList; i++) {
+  for(let i = 0; i < passwordLength; i++) {
     let randomIndex = Math.floor(Math.random() * characterList.length);
-    password + password + characterList[randomIndex];
+    password = password + characterList[randomIndex];
   }
   return password;
 }
