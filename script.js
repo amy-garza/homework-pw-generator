@@ -16,20 +16,34 @@ generateBtn.addEventListener("click", writePassword);
 
 // Write password to the #password input
 function writePassword() {
+// If user input is valid - true or false
+  let validPrompts = getPrompts();
+  
+if (validPrompts) {
   let password = generatePassword();
   let passwordText = document.querySelector("#password");
+} else {}
 
   passwordText.value = password;
-
+  }
 }
-
 // Define function
 function generatePassword() {
+  let password = "";
+// for loop set to the number of characters user input
+  for(let i = 0; i < characterList; i++) {
+    let randomIndex = Math.floor(Math.random() * characterList.length);
+    password + password + characterList[randomIndex];
+  }
+  return password;
 }
+
 
 // Create prompt box to generatePassword following prompts
 function getPrompts(){
-  passwordLength = parseInt(prompt("Enter the number of characters for your password. (Must be 8 to 128 characters)"));
+  characterList = [];
+
+  passwordLength = parseInt(prompt("From 8 up to 128, enter the number of characters your password will contain."));
 
 // Stop running for Not A Number entry or not within criteria length range
 
@@ -39,16 +53,16 @@ function getPrompts(){
   }
 
 // Creates prompt for true or valid "OK"
-  if(confirm("Include lowercase letters in your password?")) {
+  if(confirm("OK to include lowercase letters in your password?")) {
     characterList = characterList.concat(lowerCase);
   }
-  if(confirm("Include UPPERCASE letters in your password?")) {
+  if(confirm("OK to include UPPERCASE letters in your password?")) {
     characterList = characterList.concat(upperCase);
   }
-  if(confirm("Include special characters in your password?")) {
+  if(confirm("OK to include special characters in your password?")) {
     characterList = characterList.concat(specialCharacters);
   }
-  if(confirm("Include numbers in your password?")) {
+  if(confirm("OK to include numbers in your password?")) {
     characterList = characterList.concat(numerics);
   }
   return true;
